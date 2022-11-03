@@ -15,10 +15,9 @@ namespace CalenderDL
     public partial class tblCalender
     {
         public int Id { get; set; }
-        public Nullable<System.DateTime> CalenderDate { get; set; }
-        public Nullable<System.TimeSpan> CalenderTime { get; set; }
-        public Nullable<bool> IsappointmentBooked { get; set; }
         public Nullable<int> UserId { get; set; }
+        public Nullable<System.DateTime> FromDate { get; set; }
+        public Nullable<System.DateTime> ToDate { get; set; }
     
         public virtual tblUser tblUser { get; set; }
     }

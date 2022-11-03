@@ -16,7 +16,7 @@ namespace CalenderDL
     {
         public int Id { get; set; }
         public Nullable<int> UserId { get; set; }
-        public Nullable<bool> IsLogin { get; set; }
+        public string Password { get; set; }
     
         public virtual tblUser tblUser { get; set; }
     }

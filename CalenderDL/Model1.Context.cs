@@ -13,10 +13,10 @@ namespace CalenderDL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class CalenderManagementEntities : DbContext
+    public partial class CalenderManagementEntities1 : DbContext
     {
-        public CalenderManagementEntities()
-            : base("name=CalenderManagementEntities")
+        public CalenderManagementEntities1()
+            : base("name=CalenderManagementEntities1")
         {
         }
     

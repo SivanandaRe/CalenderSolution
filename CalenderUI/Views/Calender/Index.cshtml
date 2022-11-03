@@ -1,0 +1,33 @@
+﻿@model IEnumerable<CalenderBO.CalenderModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(m=> m.FromDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m => m.ToDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(m=>m.UserId)
+        </th>
+    </tr>
+
+    @foreach(CalenderBO.CalenderModel calender in Model) 
+    { 
+<tr>
+    <td>@calender.FromDate</td>
+    <td>@calender.ToDate</td>
+    <td>@calender.UserId</td>
+
+</tr>
+    }
+
+</table>
+

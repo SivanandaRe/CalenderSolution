@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="61853a25352046da830e91b05e57ae7b" Name="Diagram1" ZoomLevel="72">
+      <Diagram DiagramId="02426fb4a6624559af56516c8ef797a3" Name="Diagram1">
         <EntityTypeShape EntityType="CalenderManagementModel.tblCalender" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="CalenderManagementModel.tblLogin" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="CalenderManagementModel.tblUser" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <AssociationConnector Association="CalenderManagementModel.FK__tblCalend__UserI__29572725" ManuallyRouted="false" />
-        <AssociationConnector Association="CalenderManagementModel.FK__tblLogin__UserId__267ABA7A" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CalenderManagementModel.tblLogin" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CalenderManagementModel.tblUser" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <AssociationConnector Association="CalenderManagementModel.FK__tblCalend__UserI__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="CalenderManagementModel.FK__tblLogin__UserId__2E1BDC42" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

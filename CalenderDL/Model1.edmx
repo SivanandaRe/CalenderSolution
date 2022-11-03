@@ -10,10 +10,9 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CalenderDate" Type="date" />
-          <Property Name="CalenderTime" Type="time" Precision="7" />
-          <Property Name="IsappointmentBooked" Type="bit" />
           <Property Name="UserId" Type="int" />
+          <Property Name="FromDate" Type="datetime" />
+          <Property Name="ToDate" Type="datetime" />
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
@@ -21,17 +20,18 @@
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="UserId" Type="int" />
-          <Property Name="IsLogin" Type="bit" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="UserName" Type="varchar" MaxLength="200" />
-          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="FirstName" Type="varchar" MaxLength="200" />
+          <Property Name="LastName" Type="varchar" MaxLength="200" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
         </EntityType>
-        <Association Name="FK__tblCalend__UserI__29572725">
+        <Association Name="FK__tblCalend__UserI__31EC6D26">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblCalender" Type="Self.tblCalender" Multiplicity="*" />
           <ReferentialConstraint>
@@ -43,7 +43,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblLogin__UserId__267ABA7A">
+        <Association Name="FK__tblLogin__UserId__2E1BDC42">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -59,11 +59,11 @@
           <EntitySet Name="tblCalender" EntityType="Self.tblCalender" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblLogin" EntityType="Self.tblLogin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblUser" EntityType="Self.tblUser" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__tblCalend__UserI__29572725" Association="Self.FK__tblCalend__UserI__29572725">
+          <AssociationSet Name="FK__tblCalend__UserI__31EC6D26" Association="Self.FK__tblCalend__UserI__31EC6D26">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblCalender" EntitySet="tblCalender" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblLogin__UserId__267ABA7A" Association="Self.FK__tblLogin__UserId__267ABA7A">
+          <AssociationSet Name="FK__tblLogin__UserId__2E1BDC42" Association="Self.FK__tblLogin__UserId__2E1BDC42">
             <End Role="tblUser" EntitySet="tblUser" />
             <End Role="tblLogin" EntitySet="tblLogin" />
           </AssociationSet>
@@ -78,11 +78,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CalenderDate" Type="DateTime" Precision="0" />
-          <Property Name="CalenderTime" Type="Time" Precision="7" />
-          <Property Name="IsappointmentBooked" Type="Boolean" />
           <Property Name="UserId" Type="Int32" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblCalend__UserI__29572725" FromRole="tblCalender" ToRole="tblUser" />
+          <Property Name="FromDate" Type="DateTime" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblCalend__UserI__31EC6D26" FromRole="tblCalender" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblLogin">
           <Key>
@@ -90,20 +89,21 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="UserId" Type="Int32" />
-          <Property Name="IsLogin" Type="Boolean" />
-          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblLogin__UserId__267ABA7A" FromRole="tblLogin" ToRole="tblUser" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblUser" Relationship="Self.FK__tblLogin__UserId__2E1BDC42" FromRole="tblLogin" ToRole="tblUser" />
         </EntityType>
         <EntityType Name="tblUser">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="UserName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
-          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="tblCalenders" Relationship="Self.FK__tblCalend__UserI__29572725" FromRole="tblUser" ToRole="tblCalender" />
-          <NavigationProperty Name="tblLogins" Relationship="Self.FK__tblLogin__UserId__267ABA7A" FromRole="tblUser" ToRole="tblLogin" />
+          <Property Name="FirstName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="tblCalenders" Relationship="Self.FK__tblCalend__UserI__31EC6D26" FromRole="tblUser" ToRole="tblCalender" />
+          <NavigationProperty Name="tblLogins" Relationship="Self.FK__tblLogin__UserId__2E1BDC42" FromRole="tblUser" ToRole="tblLogin" />
         </EntityType>
-        <Association Name="FK__tblCalend__UserI__29572725">
+        <Association Name="FK__tblCalend__UserI__31EC6D26">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblCalender" Type="Self.tblCalender" Multiplicity="*" />
           <ReferentialConstraint>
@@ -115,7 +115,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__tblLogin__UserId__267ABA7A">
+        <Association Name="FK__tblLogin__UserId__2E1BDC42">
           <End Role="tblUser" Type="Self.tblUser" Multiplicity="0..1" />
           <End Role="tblLogin" Type="Self.tblLogin" Multiplicity="*" />
           <ReferentialConstraint>
@@ -127,15 +127,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="CalenderManagementEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="CalenderManagementEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="tblCalenders" EntityType="Self.tblCalender" />
           <EntitySet Name="tblLogins" EntityType="Self.tblLogin" />
           <EntitySet Name="tblUsers" EntityType="Self.tblUser" />
-          <AssociationSet Name="FK__tblCalend__UserI__29572725" Association="Self.FK__tblCalend__UserI__29572725">
+          <AssociationSet Name="FK__tblCalend__UserI__31EC6D26" Association="Self.FK__tblCalend__UserI__31EC6D26">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblCalender" EntitySet="tblCalenders" />
           </AssociationSet>
-          <AssociationSet Name="FK__tblLogin__UserId__267ABA7A" Association="Self.FK__tblLogin__UserId__267ABA7A">
+          <AssociationSet Name="FK__tblLogin__UserId__2E1BDC42" Association="Self.FK__tblLogin__UserId__2E1BDC42">
             <End Role="tblUser" EntitySet="tblUsers" />
             <End Role="tblLogin" EntitySet="tblLogins" />
           </AssociationSet>
@@ -145,15 +145,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="CalenderManagementModelStoreContainer" CdmEntityContainer="CalenderManagementEntities">
+        <EntityContainerMapping StorageEntityContainer="CalenderManagementModelStoreContainer" CdmEntityContainer="CalenderManagementEntities1">
           <EntitySetMapping Name="tblCalenders">
             <EntityTypeMapping TypeName="CalenderManagementModel.tblCalender">
               <MappingFragment StoreEntitySet="tblCalender">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="CalenderDate" ColumnName="CalenderDate" />
-                <ScalarProperty Name="CalenderTime" ColumnName="CalenderTime" />
-                <ScalarProperty Name="IsappointmentBooked" ColumnName="IsappointmentBooked" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -162,7 +161,7 @@
               <MappingFragment StoreEntitySet="tblLogin">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="UserId" ColumnName="UserId" />
-                <ScalarProperty Name="IsLogin" ColumnName="IsLogin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -170,8 +169,9 @@
             <EntityTypeMapping TypeName="CalenderManagementModel.tblUser">
               <MappingFragment StoreEntitySet="tblUser">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="UserName" ColumnName="UserName" />
-                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
